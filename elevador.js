@@ -29,16 +29,19 @@ let Elevador = (function(pisosT){
 
     function irAPiso(destino){
         cerrar();
-        if(pisoActual<destino){
+        if(pisoActual<destino && destino < pisosT){
             while(pisoActual != destino){
                 subir();
             }  
-        } else if (pisoActual > destino) {
+        } else if (pisoActual > destino && destino > 1) {
             while(pisoActual != destino){
                 bajar();
             }
+        } else {
+            console.log('No tenemos ese piso')
         }
         abrir();
+        
     }
 
     function display(){
@@ -51,10 +54,7 @@ let Elevador = (function(pisosT){
 
 Elevador.mover(6)
 console.log(Elevador.estado())
-Elevador.mover(2)
-console.log(Elevador.estado())
-Elevador.cerrarPuerta()
-console.log(Elevador.estado())
-Elevador.abrirPuerta()
-console.log(Elevador.estado())
+Elevador.mover(0)
+
+
 
